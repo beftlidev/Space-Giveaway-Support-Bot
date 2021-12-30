@@ -39,11 +39,11 @@ interaction.guild.members.cache.forEach((member) => {
    } 
 /*const rozet = memberHypesquad.map((flag) => flags[flag]).join(" ") 
 member.roles.add(rozet) */
-if (memberHypesquad.any("HOUSE_BRILLIANCE")) {
+if (flags.includes("HOUSE_BRILLIANCE")) {
 member.roles.add("926125420267589713") 
-} else if (memberHypesquad.any("HOUSE_BRAVERY")) {
+} else if (flags.includes("HOUSE_BRAVERY")) {
 member.roles.add("926125424164098078") 
-} else if (memberHypesquad.any("HOUSE_BALANCE")) {
+} else if (flags.includes("HOUSE_BALANCE")) {
 member.roles.add("926125908874649610") 
 }
 })

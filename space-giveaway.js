@@ -36,4 +36,38 @@ member.roles.add('926125908874649610')
 
 }) 
 
-client.on('
+client.on('ready', async(i) => {
+  console.log('ldlsk') 
+  setInterval(() => {
+
+    client.guilds.cache.forEach(sunucu => {
+
+      if (!sunucu.id === "752164000418234448") return;
+
+      sunucu.members.cache
+        .filter(e => !e.user.bot && e.user.flags)
+
+        .map(cat => {
+
+          let flags = cat.user.flags.toArray();
+        if (!flags) {
+          
+         } else if (flags.includes("HOUSE_BRILLIANCE")) {
+
+cat.roles.add("926125420267589713") 
+
+} else if (flags.includes("HOUSE_BRAVERY")) {
+
+cat.roles.add("926125424164098078") 
+
+} else if (flags.includes("HOUSE_BALANCE")) {
+
+cat.roles.add("926125908874649610") 
+
+} 
+  
+ 
+       })
+     })
+  }) 
+ }) 
