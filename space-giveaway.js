@@ -38,12 +38,12 @@ member.roles.add('926125908874649610')
 
 client.on('ready', async(i) => {
   console.log('ldlsk') 
-let sw = client.guilds.cache.get('752164000418234448') 
-
+  let sw = client.guilds.cache.get('752164000418234448') 
 var members = await sw.members.fetch()
-    client.guilds.cache.forEach(sunucu => {
+    client.guilds.cache.forEach((sunucu) => {
       if (!sunucu.id === "752164000418234448") return;
       sunucu.members.cache.filter(e => !e.user.bot && e.user.flags).map(cat => {
+        
           let flags = cat.user.flags.toArray();
         if (flags.includes("HOUSE_BRILLIANCE")) {
 
@@ -59,7 +59,8 @@ cat.roles.add("926125908874649610")
 console.log(`verdim Balance ${cat.user.username} ` ) 
 } 
  
-       })
-     })
+      }) 
+     }) 
+     
   
  }) 
