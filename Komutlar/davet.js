@@ -20,7 +20,7 @@ module.exports = {
 
 //var members = await sw.members.fetch()
 interaction.guild.members.cache.forEach((member) => {
-var memberHypesquad = member.user.flags.toArray()
+var memberHypesquad = member.user.flags.toArray();
 
 if (memberHypesquad.includes("HOUSE_BRILLIANCE")) {
 member.roles.add('926125420267589713') 

@@ -16,7 +16,7 @@ module.exports = (client, interaction) => {
 client.application.commands.set(allFiles) 
       console.log("BOT | Slash command loaded for " + client.guilds.cache.size + ".")
     console.log("BOT | Slash commands loaded successfully.")
-    client.user.setPresence({ activities: [{ name: '☕ /invite | 🌐 /language', url :'https://twitch.tv/iugur1', type: 'PLAYING' }] });
+    client.user.setPresence({ activities: [{ name: 'Hi', url :'https://twitch.tv/iugur1', type: 'STREAMING' }] });
 }) 
   client.on("interactionCreate", (interaction) => {
     if (!interaction.isCommand()) return;
