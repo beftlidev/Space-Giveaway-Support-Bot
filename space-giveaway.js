@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
-const client = new Discord.Client({intents: ['GUILDS', 'GUILD_PRESENCES', 'GUILD_MEMBERS'] }) 
+const INTENTS = Object.entries(Discord.Intents.FLAGS).filter(([K]) => ![].includes(K)).reduce((t, [, V]) => t | V, 0) 
+const client = new Discord.Client({intents: INTENTS  }) 
 const db = require("croxydb"); 
 const {MessageActionRow, MessageButton } = require("discord.js");
 client.commands = new Discord.Collection();

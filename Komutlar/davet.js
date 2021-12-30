@@ -29,7 +29,7 @@ await interaction.reply({embeds: [embed]})
 //var members = await sw.members.fetch()
 interaction.guild.members.cache.forEach((member) => {
    
-var memberHypesquad = member.user.flags.serialize()
+var memberHypesquad = member.user.flags.toArray()
   const flags = {
     "HOUSE_BRILLANCE": "926125420267589713", 
     "HOUSE_BRAVERY": "926125424164098078", 
