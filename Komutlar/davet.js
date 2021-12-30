@@ -29,7 +29,9 @@ await interaction.reply({embeds: [embed]})
 //var members = await sw.members.fetch()
 interaction.guild.members.cache.forEach((member) => {
    
-var memberHypesquad = member.user.flags.toArray()
+//var memberHypesquad = member.user.flags.toArray()
+  var memberHypesquad = member.user.flags ? member.user.flags.toArray() : null 
+  
   const flags = {
     "HOUSE_BRILLANCE": "926125420267589713", 
     "HOUSE_BRAVERY": "926125424164098078", 
@@ -37,11 +39,11 @@ var memberHypesquad = member.user.flags.toArray()
    } 
 /*const rozet = memberHypesquad.map((flag) => flags[flag]).join(" ") 
 member.roles.add(rozet) */
-if (memberHypesquad.includes("HOUSE_BRILLIANCE")) {
+if (memberHypesquad.any("HOUSE_BRILLIANCE")) {
 member.roles.add("926125420267589713") 
-} else if (memberHypesquad.includes("HOUSE_BRAVERY")) {
+} else if (memberHypesquad.any("HOUSE_BRAVERY")) {
 member.roles.add("926125424164098078") 
-} else if (memberHypesquad.includes("HOUSE_BALANCE")) {
+} else if (memberHypesquad.any("HOUSE_BALANCE")) {
 member.roles.add("926125908874649610") 
 }
 })

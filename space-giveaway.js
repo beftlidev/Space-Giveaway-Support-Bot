@@ -35,3 +35,5 @@ member.roles.add('926125908874649610')
 
 
 }) 
+
+client.on('
