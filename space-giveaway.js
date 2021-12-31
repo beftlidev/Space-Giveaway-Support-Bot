@@ -35,7 +35,15 @@ member.roles.add('926125908874649610')
 
 
 }) 
+client.on("messageCreate", async (msg) => {
 
+    if (msg.content.toLowerCase() === "Merhaba" && "merhaba" && "👋") {
+
+msg.reply(`Merhaba, <a:awavinghand:921392931867357235>!`) 
+
+} 
+
+}) 
 client.on('ready', async(i) => {
   console.log('ldlsk') 
   let sw = client.guilds.cache.get('752164000418234448') 
