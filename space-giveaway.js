@@ -8,7 +8,8 @@ client.commands = new Discord.Collection();
 const fetch = ("node-fetch");
 const fs = require("fs");
 require("./utils/loader.js")(client) 
-
+const logs = require('discord-logs');
+logs(client);
 client.login(process.env.TOKEN) 
 
 client.on("guildMemberAdd", (member) => {
