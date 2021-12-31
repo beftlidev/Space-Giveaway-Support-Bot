@@ -84,19 +84,21 @@ console.log(`verdim Balance ${cat.user.username} ` )
      
   
  }) 
-client.on('guildMemberBoost', (member) => {
+client.on('guildMemberBoost', async(member) => {
 
 let sunucuID = "752164000418234448" 
 
 let kanal = "926527982435176519" 
+let sw = client.guilds.cache.get('752164000418234448') 
 
+var members = await sw.members.fetch()
 let boost = client.guilds.cache.get(sunucuID).premiumSubscriptionCount
 
 let tier = client.guilds.cache.get(sunucuID).premiumTier
 
 const cevaplar = [
 
-"Sunucuya bir boost yolladı!", "Sunucuya bir boost gönderdi!", "Sunucuya bir kargo gönderdi ve içinden boost çıktı!", "Sunucuya garip bir şey gönderdi *b-b-bu bir evet bu bir boost!", "Sunucuya boost basarak kalbimizi çaldı!", "Sunucuya pizza yerine boost gönderdi. Dikkat et üyeler çok kızabilir *hrrrrr*!", "Sunucuya bir dondurmacı açtı ve kazandığı para ile boost bastı!", "Sunucuya bir bomba attı ve *BUMMM* heryer pembe boost ile kaplı!"
+"Sunucuya bir boost yolladı!", "Sunucuya bir boost gönderdi!", "Sunucuya bir kargo gönderdi ve içinden boost çıktı!", "Sunucuya garip bir şey gönderdi *b-b-bu bir evet bu bir boost*!", "Sunucuya boost basarak kalbimizi çaldı!", "Sunucuya pizza yerine boost gönderdi. Dikkat et üyelerimiz çok kızabilir *hrrrrr*!", "Sunucuda bir dondurmacı açtı ve kazandığı para ile boost bastı!", "Sunucuya bir bomba attı ve *BUMMM* heryer pembe boost ile kaplı!"
 
 ]
 
@@ -105,9 +107,8 @@ var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
 let mesaj = `<:bust_iste:926527923127730226> ${member.user} ${cevap}
 
 `
-
+members.get(member.user.id).roles.add('926538671874797639') 
 client.channels.cache.get(kanal).send({content: mesaj}) 
-
 })
 
 client.on('guildMemberUnBoost', (member) => {
@@ -122,7 +123,7 @@ let tier = client.guilds.cache.get(sunucuID).premiumTier
 
 const cevaplar = [
 
-"Sunucuya bir boostunu geri çekti!", "Sunucuya bir kargo göndermişti ama adres yanlışmış!", "Sunucuya garip bir şey gönderdi *b-b-bu bir evet yanlış basılmış boost!", "Sunucuya bastığı Boostu geri çekti ama hala onu seviyoruz!", "Sunucuya boost yerine pizza göndermiş. Üyeler çok mutlu *yummy*!", "Sunucuya bir dondurmacı açtı ve kazandığı para ile uzaklara gitti!", "Sunucuya bir bomba attı ve *BUMMM* heryer siyah boost ile kaplı!"
+"Sunucuya bir boostunu geri çekti!", "Sunucuya bir kargo göndermişti ama adres yanlışmış!", "Sunucuya garip bir şey gönderdi *b-b-bu bir evet yanlış basılmış boost!", "Sunucuya bastığı Boostu geri çekti ama hala onu seviyoruz!", "Sunucuya boost yerine pizza göndermiş. Üyelerimiz çok mutlu *yummy*!", "Sunucuda bir dondurmacı açtı ve kazandığı para ile uzaklara gitti!", "Sunucuya bir bomba attı ve *BUMMM* heryer siyah boost ile kaplı!"
 
 ]
 
@@ -168,19 +169,3 @@ client.channels.cache.get(kanal).send({content: mesaj})
 
 })
 
-client.on("messageCreate", async message => {
-
-  if (message.content === "-sj") {
-    // - yerine prefixi yaz
-
-    client.emit(
-
-      "guildMemberBoost",
-
-      message.member || (await message.guild.fetchMember(message.author))
-
-    );
-
-  }
-
-});
