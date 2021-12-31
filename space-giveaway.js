@@ -58,7 +58,7 @@ console.log(`verdim Bravery ${cat.user.username} `)
 cat.roles.add("926125908874649610") 
 console.log(`verdim Balance ${cat.user.username} ` ) 
 } 
- 
+  
       }) 
      }) 
      
