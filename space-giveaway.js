@@ -22,8 +22,16 @@ const embed = new Discord.MessageEmbed()
 .setColor('GREEN') 
 
 .setFooter(`Space Giveaway Support`, client.user.avatarURL()) 
+const row = new MessageActionRow() 
+.addComponents(
+  new MessageButton() 
 
-client.channels.cache.get('843458021040455740').send({embeds: [embed]})
+.setStyle('PRIMARY')
+
+.setLabel('Say Hello!')
+.setEmoji('921392931867357235')
+.setDisabled(true) 
+.setCustomId(`say_hello_${member.user.id}nt.channels.cache.get('843458021040455740').send({embeds: [embed], components: [row]})
 var memberHypesquad = member.user.flags.toArray()
 if (memberHypesquad.includes("HOUSE_BRILLIANCE")) {
 member.roles.add('926125420267589713') 
@@ -37,8 +45,9 @@ member.roles.add('926125908874649610')
 }) 
 client.on("messageCreate", async (msg) => {
 
-    if (msg.content.toLowerCase() === "Merhaba" && "merhaba" && "👋") {
-
+    if (msg.content.toLowerCase() === "Merhaba" || "merhaba" || "👋") {
+if(msg.author.bot) return 
+      
 msg.reply(`Merhaba, <a:awavinghand:921392931867357235>!`) 
 
 } 
