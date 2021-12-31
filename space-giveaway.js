@@ -14,8 +14,8 @@ client.login(process.env.TOKEN)
 client.on("guildMemberAdd", (member) => {
 const embed = new Discord.MessageEmbed() 
 
-.setDescription(`Sunucumuza Hoşgeldin ${member.user}, <a:awavinghand:921392931867357235>! 
-<#754205434088521831> Kanalını okumayı unutma. 
+.setDescription(`<:join_green:910008550204514315> Sunucumuza Hoşgeldin ${member.user}, <a:awavinghand:921392931867357235>! 
+<:rules:799571949286064159> <#754205434088521831> Kanalını okumayı unutma. 
 <:dadlu_kedi:917011422922301440> Merhaba diyerek sohbete başlamaya ne dersin? 
 `) 
 
