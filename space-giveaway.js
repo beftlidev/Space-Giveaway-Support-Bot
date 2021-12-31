@@ -47,7 +47,7 @@ member.roles.add('926125908874649610')
 }) 
 client.on("messageCreate", async (msg) => {
 
-    if (msg.content.toLowerCase() === "Merhaba" || "merhaba" || "👋") {
+    if (msg.content.toLowerCase() === "merhaba") {
 if(msg.author.bot) return 
       
 msg.reply(`Merhaba, <a:awavinghand:921392931867357235>!`) 
