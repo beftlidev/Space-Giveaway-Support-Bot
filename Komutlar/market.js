@@ -26,7 +26,7 @@ const select = new Discord.MessageSelectMenu()
 
 .setCustomId("select")
 
-.setPlaceholder("Choose a type of giveaway to view!")
+.setPlaceholder("İstediğin rol için tıkla!")
 
 .addOptions([
 
@@ -61,12 +61,13 @@ description: 'Merkür, hmmm. Cidden nasıl bir gezegen olduğunu hatırlamıyoru
 value: 'merkur', }, 
 
 ]) 
+const row = new Discord.MessageActionRow().addComponents([select])
 
-interaction.reply({content: mesaj, components: [select]}) 
+interaction.reply({content: mesaj, components: [row]}) 
 
 const filter = x => x.customId == "select" && x.user.id == interaction.member.id
 
-const collector = await interaction.channel.createMessageComponentCollector({ filter, time: 60000, max: 1 })
+const collector = await interaction.channel.createMessageComponentCollector({ filter, time: 60000, max: 10 })
 
 collector.on("collect", async (i) => {
 

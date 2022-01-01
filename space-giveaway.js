@@ -429,22 +429,8 @@ i.channel.send(mesaj)
 }
 } 
  }
- /* if(i.customId == "tıkla_coin") {
-
-const cevaplar = [
-
-"1000", "2750", "1250", "1500", "2000", "2500", "2250", "1750", "3000", "3250","3500","3750","4000","4250", "4500", "4750", "5000", 
-
-] 
-
-var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)]; 
-
-await coin.add(`coin_${i.user.id}`,cevap) 
-
-i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, components: []}) 
-
-}*/
-}) 
+ 
+})
 
 client.on('messageCreate', message => {
 

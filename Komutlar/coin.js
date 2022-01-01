@@ -30,9 +30,11 @@ let toplam = await client.coin.fetch(`coin_${i.id}`)
 
         const embed = new Discord.MessageEmbed()
 
-        .setAuthor(i.username, i.displayAvatarURL({dynamic:true})).setThumbnail(interaction.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
+        //.setAuthor(i.username, i.displayAvatarURL({dynamic:true})).setThumbnail(interaction.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true}))
+        .setColor("#0099ff")
+        .setTimestamp()
 
-       .setDescription(`Toplam coinin: ${toplam}`) 
+       .setDescription(`${i} Toplam coinin: ${toplam}`) 
 
         interaction.reply({embeds: [embed]})
 
