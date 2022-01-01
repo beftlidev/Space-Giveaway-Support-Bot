@@ -58,34 +58,67 @@ const embed = new Discord.MessageEmbed()
 .setTitle('<:rules:799571949286064159> Space Giveaway Community Rules!')
 
 .setDescription(`
-
 > <a:awavinghand:921392931867357235> Selam, lütfen aşşağıdaki tüm kuralları okuyunuz ve hepsine uymaya çalışınız!
-
 <:wimpis:905855714096975892> Din, ırkçılık gibi şeyler yapmak yasak!
-
 Cezası: *Sınırsız ban*
-
 <:role_req:921813958212603974> Sebepsiz yere bir yetkili & yüksek rolü etiketlemek yasak!
-
 Cezası: *1 Saat Mute*
-
 <:sgs_slash:921392929015210005> <#843458021040455740> Kanalında komut kullanmak yasak!
-
 Cezası: *1 Saat Mute*
-
-<:link-1:843504209081270282> Sunucuda reklam amaçlı, kötü amaçlı Linkler vb. Linkler atmak yasak!
-
+<:link:843504209081270282> Sunucuda reklam amaçlı, kötü amaçlı Linkler vb. Linkler atmak yasak!
 Cezası: *1 Gün Mute*
-
 <:dadlu_kedi:917011422922301440> Sunucuda birine saygısız şekilde, kırıcı, küfür vb. Etmek yapmak yasaktır!
-
+Cezası: *1 Gün Mute*
+<:tik:804253394326913085> Sunucuda +18 gif, fotoğraf, video, link oatlamşka yasaktır!
+Cezası: *Sınırsız ban*
+<:user_help:911678949287927909> Herhangi bir hesap satmak, birinin kişisel bilgisini (telefon numarası, kimlik numarası vb.) paylaşmak yasaktır!
+Cezası: *Sınırsız ban*
+<:hastag:888415406937755688> <#878502911389335552>, <#848130151169392670>, <#911056301386268692>, <#919979806781755472>, <#923247333708300298> kanallarını amaçları dışında kullanmak yasaktır!
+Cezası: *1 Gün Mute*
+<:discord:888414495423225866> <#848130100825554984> Sebepsiz yere ticket açmak yasaktır!
 Cezası: *1 Gün Mute*
 
-<:tik:804253394326913085> Sunucuda +18 gif, fotoğraf, video, link oatlamşka yasaktır!
+<:sgs_error:921392927568195645> Not: Sunucuya giriş yaptığınız zaman bu kuralları okumuş ve kabul etmiş sayılırsınız.
+`) 
 
-Cezası: *Sınırsız ban*
+.setFooter('Space Giveaway Community', client.user.displayAvatarURL()) 
+.setColor('#0099ff') 
+const row = new MessageActionRow() 
 
+.addComponents(
 
+new MessageButton() 
+
+.setStyle('LINK')
+.setLabel('Sunucu Davet Linki')
+
+.setEmoji('')
+
+.setURL('https://discord.gg/KZfAEjrPUF'), 
+new MessageButton() 
+ .setStyle('LINK')
+
+.setLabel('Web Site')
+
+.setEmoji('🌐')
+
+.setURL('https://spacegiveaway.xyz/'), 
+new MessageButton() 
+.setStyle('LINK')
+
+.setLabel('Space Giveaway Davet Linki')
+
+.setEmoji('')
+
+.setURL('https://discord.com/oauth2/authorize?client_id=765207268408033322&scope=bot+applications.commands&permissions=2147483656')
+
+) 
+
+msg.channel.send({embeds: [embed], components: [row]}) 
+
+} 
+
+}) 
 client.on("messageCreate", async (msg) => {
 
     if (msg.content.toLowerCase() === "merhaba") {
@@ -96,6 +129,29 @@ msg.reply(`Merhaba, <a:awavinghand:921392931867357235>!`)
 } 
 
 }) 
+client.on("messageCreate", async (msg) => {
+
+    if (msg.content.toLowerCase() === "sa") {
+
+if(msg.author.bot) return 
+
+msg.reply(`Aleyküm Selam Hoşgeldin, <a:awavinghand:921392931867357235>!`) 
+
+} 
+
+})
+
+client.on("messageCreate", async (msg) => {
+
+    if (msg.content.toLowerCase() === "selamün aleyküm") {
+
+if(msg.author.bot) return 
+
+msg.reply(`Aleyküm Selam Hoşgeldin, <a:awavinghand:921392931867357235>!`) 
+
+} 
+
+})  
 client.on('ready', async(i) => {
   console.log('ldlsk') 
   let sw = client.guilds.cache.get('752164000418234448') 
