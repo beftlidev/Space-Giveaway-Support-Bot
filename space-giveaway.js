@@ -12,6 +12,21 @@ const logs = require('discord-logs');
 logs(client);
 client.login(process.env.TOKEN) 
 
+const {
+
+    JsonDatabase,
+
+    YamlDatabase
+
+} = require("wio.db");
+
+const coin = new JsonDatabase({
+
+    databasePath:"./databases/coin.json" 
+
+});
+client.coin = coin 
+
 client.on("guildMemberAdd", (member) => {
 const embed = new Discord.MessageEmbed() 
 
@@ -379,7 +394,7 @@ if(message.author.bot) return
 
 const cevaplar = [
 
-"evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", 
+"evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", 
 
 ] 
 
@@ -403,7 +418,7 @@ new MessageButton()
 
 ) 
 
-message.channel.send({content: 'İlk aşşağıdaki butona tıklayan 1000-5000 arası coin kazanacak!', components: [row]} ) 
+message.channel.send({content: 'Aşşağıdaki butona ilk tıklayan 1000-5000 arası coin kazanacak!', components: [row]} ) 
 
 } else {
 
@@ -425,7 +440,7 @@ const cevaplar = [
 
 var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)]; 
 
-db.add(`coin_${i.user.id}`,cevap) 
+await coin.add(`coin_${i.user.id}`,cevap) 
 
 i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, components: []}) 
 
@@ -435,6 +450,6 @@ i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, compon
 
 client.on('messageCreate', async(m) => {
 
-db.add(`coin_${m.author.id}`,1)
+await coin.add(`coin_${m.author.id}`,1)
 
 }) 
