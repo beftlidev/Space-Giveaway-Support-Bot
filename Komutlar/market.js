@@ -67,7 +67,7 @@ interaction.reply({content: mesaj, components: [row]})
 
 const filter = x => x.customId == "select" && x.user.id == interaction.member.id
 
-const collector = await interaction.channel.createMessageComponentCollector({ filter, time: 60000, max: 10 })
+const collector = await interaction.channel.createMessageComponentCollector({ filter, time: 60000, max: 5 })
 
 collector.on("collect", async (i) => {
 
