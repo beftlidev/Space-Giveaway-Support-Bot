@@ -344,10 +344,10 @@ if (!i.customId.startsWith("hello")) return
 
 var id = i.customId.split("-")[1]
 if(i.customId == `hello-${id}`) {
-let data = db.fetch(`tıkladı_${i.message.id}`)
+let data = db.fetch(`tıkladı_${i.user.id}_${i.message.id}`)
 
 if(data == "mev") {
-
+await i.deferUpdate();
 return 
 
 } 
@@ -355,20 +355,20 @@ return
 if(!data) {
 
 if(i.user.id == id) {
-
+await i.deferUpdate();
 let mesaj = `<a:awavinghand:921392931867357235> ${i.user} Herkese merhaba diyor!`
 
-db.set(`tıkladı_${i.message.id}`,`mev`)
+db.set(`tıkladı_${i.user.id}_${i.message.id}`,`mev`)
 i.channel.send(mesaj) 
-} 
+} else {
 
-if(!i.user.id == id) {
+//if(!i.user.id == id) {
+await i.deferUpdate();
+let mesaj = `<a:awavinghand:921392931867357235> ${i.user}, <@${id}>'i selamlıyor!`
 
-let mesaj = `<a:awavinghand:921392931867357235> ${i.user.id}, <@${id}>'i selamlıyor!`
-
-db.set(`tıkladı_${i.message.id}`,`mev`)
+db.set(`tıkladı_${i.user.id}_${i.message.id}`,`mev`)
 i.channel.send(mesaj) 
+}
 } 
-} 
-} 
+ }
 }) 
