@@ -31,7 +31,7 @@ const row = new MessageActionRow()
 
 .setLabel('Say Hello!')
 .setEmoji('921392931867357235')
-.setDisabled(true) 
+.setDisabled(false) 
 .setCustomId(`hello-${member.user.id}`) 
   )
 client.channels.cache.get('843458021040455740').send({embeds: [embed], components: [row]})
@@ -237,15 +237,15 @@ var members = await sw.members.fetch()
         if (flags.includes("HOUSE_BRILLIANCE")) {
 
 cat.roles.add("926125420267589713") 
-           console.log(`verdim Brillance ${cat.user.username} ` ) 
+           //console.log(`verdim Brillance ${cat.user.username} ` ) 
 } else if (flags.includes("HOUSE_BRAVERY")) {
 
 cat.roles.add("926125424164098078") 
-console.log(`verdim Bravery ${cat.user.username} `) 
+//console.log(`verdim Bravery ${cat.user.username} `) 
 } else if (flags.includes("HOUSE_BALANCE")) {
 
 cat.roles.add("926125908874649610") 
-console.log(`verdim Balance ${cat.user.username} ` ) 
+//console.log(`verdim Balance ${cat.user.username} ` ) 
 } 
   
       }) 
@@ -338,3 +338,37 @@ client.channels.cache.get(kanal).send({content: mesaj})
 
 })
 
+client.on('interactionCreate', async(i) => {
+
+if (!i.customId.startsWith("hello")) return
+
+var id = i.customId.split("-")[1]
+if(i.customId == `hello-${id}`) {
+let data = db.fetch(`tıkladı_${i.message.id}`)
+
+if(data == "mev") {
+
+return 
+
+} 
+
+if(!data) {
+
+if(i.user.id == id) {
+
+let mesaj = `<a:awavinghand:921392931867357235> ${i.user} Herkese merhaba diyor!`
+
+db.set(`tıkladı_${i.message.id}`,`mev`)
+i.channel.send(mesaj) 
+} 
+
+if(!i.user.id == id) {
+
+let mesaj = `<a:awavinghand:921392931867357235> ${i.user.id}, <@${id}>'i selamlıyor!`
+
+db.set(`tıkladı_${i.message.id}`,`mev`)
+i.channel.send(mesaj) 
+} 
+} 
+} 
+}) 
