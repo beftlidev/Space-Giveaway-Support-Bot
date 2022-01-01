@@ -46,6 +46,46 @@ member.roles.add('926125908874649610')
 
 
 }) 
+
+client.on("messageCreate", async (msg) => {
+
+    if (msg.content.toLowerCase() === ".kurallar") {
+
+if(!msg.author.id == "753842258457002036") return 
+
+const embed = new Discord.MessageEmbed() 
+
+.setTitle('<:rules:799571949286064159> Space Giveaway Community Rules!')
+
+.setDescription(`
+
+> <a:awavinghand:921392931867357235> Selam, lütfen aşşağıdaki tüm kuralları okuyunuz ve hepsine uymaya çalışınız!
+
+<:wimpis:905855714096975892> Din, ırkçılık gibi şeyler yapmak yasak!
+
+Cezası: *Sınırsız ban*
+
+<:role_req:921813958212603974> Sebepsiz yere bir yetkili & yüksek rolü etiketlemek yasak!
+
+Cezası: *1 Saat Mute*
+
+<:sgs_slash:921392929015210005> <#843458021040455740> Kanalında komut kullanmak yasak!
+
+Cezası: *1 Saat Mute*
+
+<:link-1:843504209081270282> Sunucuda reklam amaçlı, kötü amaçlı Linkler vb. Linkler atmak yasak!
+
+Cezası: *1 Gün Mute*
+
+<:dadlu_kedi:917011422922301440> Sunucuda birine saygısız şekilde, kırıcı, küfür vb. Etmek yapmak yasaktır!
+
+Cezası: *1 Gün Mute*
+
+<:tik:804253394326913085> Sunucuda +18 gif, fotoğraf, video, link oatlamşka yasaktır!
+
+Cezası: *Sınırsız ban*
+
+
 client.on("messageCreate", async (msg) => {
 
     if (msg.content.toLowerCase() === "merhaba") {
