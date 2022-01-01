@@ -32,7 +32,7 @@ const row = new MessageActionRow()
 .setLabel('Say Hello!')
 .setEmoji('921392931867357235')
 .setDisabled(true) 
-.setCustomId(`say_hello_${member.user.id}`) 
+.setCustomId(`hello-${member.user.id}`) 
   )
 client.channels.cache.get('843458021040455740').send({embeds: [embed], components: [row]})
 var memberHypesquad = member.user.flags.toArray()
@@ -199,9 +199,9 @@ client.on('messageCreate', message => {
 
 if (message.channel.id == "843458132968734740") {
 
-message.react('<a:sgc_like:') 
+message.react('👍') 
 
-message.react('<a:sgc_dislike:926739242204405781>')
+message.react('👎')
 
 message.react('❤️')
 
