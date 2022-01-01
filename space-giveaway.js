@@ -430,7 +430,7 @@ i.channel.send(mesaj)
 }
 } 
  }
-  if(i.customId == "tıkla_coin") {
+ /* if(i.customId == "tıkla_coin") {
 
 const cevaplar = [
 
@@ -444,7 +444,7 @@ await coin.add(`coin_${i.user.id}`,cevap)
 
 i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, components: []}) 
 
-}
+}*/
 }) 
 
 client.on('messageCreate', message => {
@@ -487,7 +487,7 @@ return
 
 })
 
-/*client.on('interactionCreate', async(i) => {
+client.on('interactionCreate', async(i) => {
 
 if(i.customId == "tıkla_coin") {
 const cevaplar = [
@@ -497,7 +497,7 @@ var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
 await coin.add(`coin_${i.user.id}`,cevap) 
 i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, components: []}) 
 }
-})*/
+})
 
 client.on('messageCreate', async(m) => {
 
