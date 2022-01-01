@@ -8,19 +8,19 @@ module.exports = {
 
   options: [], 
 
-    description: 'En çok coini olan 25 kişiyi gösterir.',
+    description: 'En çok coini olan 10 kişiyi gösterir.',
 
     run: async (client, interaction) => {
 
 const Teyit = await client.coin.all().filter(data => data.ID.startsWith(`coin_`)).sort((a, b) => b.data - a.data)
 
-        Teyit.length = 25
+        Teyit.length = 10
 
         let FinalDB = ""
 
         for (var i in Teyit) {
 
-          FinalDB += `**${Teyit.indexOf(Teyit[i])+1}. ${client.users.cache.get(Teyit[i].ID.slice(6)).tag}** - **${Teyit[i].data}** Coin!\n`
+          FinalDB += `**${Teyit.indexOf(Teyit[i])+1}. ${client.users.cache.get(Teyit[i].ID.slice(5))}** - **${Teyit[i].data}** Coin!\n`
 
         }
 
