@@ -372,3 +372,26 @@ i.channel.send(mesaj)
 } 
  }
 }) 
+
+client.on('messageCreate', message => {
+if(message.author.bot) return 
+const cevaplar = [
+
+"evet", "hayır", 
+
+] 
+
+var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+
+
+if(cevap == "evet") {
+
+message.channel.send('tıkla al bane') 
+
+} else {
+
+return 
+
+} 
+
+})
