@@ -46,9 +46,11 @@ const row = new MessageActionRow()
 
 .setLabel('Say Hello!')
 .setEmoji('921392931867357235')
-.setCustomId(`hello-${member.user.id}`) 
+.setCustomId(`hello`) 
   )
-client.channels.cache.get('843458021040455740').send({embeds: [embed], components: [row]})
+client.channels.cache.get('843458021040455740').send({embeds: [embed], components: [row]}).then(msg => {
+ db.set(`say_hello_id_${msg.id}`, member.user.id)
+ }) 
 var memberHypesquad = member.user.flags.toArray()
 if (memberHypesquad.includes("HOUSE_BRILLIANCE")) {
 member.roles.add('926125420267589713') 
@@ -94,7 +96,6 @@ Cezası: *1 Gün Mute*
 
 <:sgs_error:921392927568195645> Not: Sunucuya giriş yaptığınız zaman bu kuralları okumuş ve kabul etmiş sayılırsınız.
 `) 
-
 .setFooter('Space Giveaway Community', client.user.displayAvatarURL()) 
 .setColor('#0099ff') 
 const row = new MessageActionRow() 
@@ -398,14 +399,14 @@ client.channels.cache.get(kanal).send({content: mesaj})
 
 client.on('interactionCreate', async(i) => {
 
-if (!i.customId.startsWith("hello")) {
+/*if (!i.customId.startsWith("hello")) {
   
   return 
 } 
-var id = i.customId.split("-")[1]
-if(i.customId == `hello-${id}`) {
+var id = i.customId.split("-")[1]*/
+ if(i.customId == `hello`) {
 let data = db.fetch(`tıkladı_${i.user.id}_${i.message.id}`)
-
+let id = db.fetch(`say_hello_id_${i.message.id}`)
 if(data == "mev") {
 await i.deferUpdate()
 return 
@@ -431,7 +432,7 @@ i.channel.send(mesaj)
 }
 } 
  }
- /*if(i.customId == "tıkla_coin") {
+ if(i.customId == "tıkla_coin") {
 
 const cevaplar = [
 
@@ -445,7 +446,7 @@ await coin.add(`coin_${i.user.id}`,cevap)
 
 i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, components: []}) 
 
-}*/
+}
 })
 
 client.on('messageCreate', message => {
