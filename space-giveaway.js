@@ -140,7 +140,80 @@ msg.reply(`Aleyküm Selam Hoşgeldin, <a:awavinghand:921392931867357235>!`)
 } 
 
 })
+client.on('messageCreate', message => {
 
+if (message.channel.id == "926527982435176519") {
+
+message.react('<:bust_iste:926527923127730226>') 
+
+} 
+
+})
+
+client.on('messageCreate', message => {
+
+if (message.channel.id == "919979806781755472") {
+
+const cevaplar = [
+
+"🤣", "🙂", "🤩", "😁", "🤭", "🤔", "🙄", "🤯", "😖", "😳", "🤪"
+
+] 
+
+var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+
+message.react(cevap) 
+
+} 
+
+})
+
+client.on('messageCreate', message => {
+
+if (message.channel.id == "847478473730818078") {
+
+message.react('🎉') 
+
+} 
+
+})
+    client.on('messageCreate', message => {
+
+if (message.channel.id == "844812716899696640") {
+
+const cevaplar = [
+
+"<:crcivcivkalp2:886162883178803250>", "<:dadlu_kedi:917011422922301440>", "😍", "😋", "😘", "🤩", "😝", "🤗", "😻", "👌"
+
+] 
+
+var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+
+message.react(cevap) 
+
+} 
+
+})
+
+client.on('messageCreate', message => {
+
+if (message.channel.id == "843458132968734740") {
+
+message.react('<a:sgc_like:') 
+
+message.react('<a:sgc_dislike:926739242204405781>')
+
+message.react('❤️')
+
+message.react('🤔')
+
+message.react('🤭')
+
+message.react('😍')
+
+} 
+
+})
 client.on("messageCreate", async (msg) => {
 
     if (msg.content.toLowerCase() === "selamün aleyküm") {
