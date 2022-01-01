@@ -238,7 +238,52 @@ if(msg.author.bot) return
 msg.reply(`Aleyküm Selam Hoşgeldin, <a:awavinghand:921392931867357235>!`) 
 
 } 
+if(msg.content.toLowerCase == "günlük") {
 
+const talkedRecently = new Set();
+
+const cevaplar = [
+
+"500", "750", "1000", "1500", "250",
+
+] 
+
+const coin = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+
+if (talkedRecently.has(msg.author.id)) {
+
+        const embed = new Discord.MessageEmbed()
+
+        .setColor("RED")
+
+        .setDescription(`<:sgs_error:921392927568195645> Bu komutu günde bir kullanabilirsin!`)
+
+        msg.reply({embeds: [embed], ephemeral: true});
+
+} else {
+  await coin.add(`coin_${msg.author.id}`, coin) 
+
+let toplam = await coin.fetch(`coin_${msg.author.id}`)
+
+        const embed = new Discord.MessageEmbed()
+
+        .setAuthor(msg.author.username, msg.author.displayAvatarURL({dynamic:true})).setThumbnail(msg.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
+
+       .setDescription(`Toplam ${coin} coin kazandın, tebrikler 🎉!`) 
+
+        msg.reply({embeds: [embed]})
+
+talkedRecently.add(msg.author.id);
+
+setTimeout(() => {
+
+  talkedRecently.delete(msg.author.id);
+
+}, 86400000);
+
+}
+
+} 
 })  
 client.on('ready', async(i) => {
   console.log('ldlsk') 

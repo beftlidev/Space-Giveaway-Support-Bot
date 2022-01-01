@@ -37,7 +37,7 @@ let toplam = await client.coin.fetch(`coin_${interaction.user.id}`)
 
         const embed = new Discord.MessageEmbed()
 
-        .setAuthor(interaction.user.username, interaction.user.displayAvatarURL({dynamic:true})).setThumbnail(interaction.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
+      //  .setAuthor(interaction.user.username, interaction.user.displayAvatarURL({dynamic:true})).setThumbnail(interaction.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
 
        .setDescription(`Toplam ${coin} coin kazandın, tebrikler 🎉!`) 
 
