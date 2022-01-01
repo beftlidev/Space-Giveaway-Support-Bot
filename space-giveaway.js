@@ -374,19 +374,36 @@ i.channel.send(mesaj)
 }) 
 
 client.on('messageCreate', message => {
+
 if(message.author.bot) return 
+
 const cevaplar = [
 
-"evet", "hayır", 
+"evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", 
 
 ] 
 
-var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
-
+var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)]; 
 
 if(cevap == "evet") {
 
-message.channel.send('tıkla al bane') 
+const row = new MessageActionRow() 
+
+.addComponents(
+
+new MessageButton() 
+
+.setStyle('PRIMARY')
+
+.setLabel('Tıkla!')
+
+.setEmoji('👆')
+
+.setCustomId('tıkla_coin') 
+
+) 
+
+message.channel.send({content: 'İlk aşşağıdaki butona tıklayan 1000-5000 arası coin kazanacak!', components: [row]} ) 
 
 } else {
 
@@ -395,3 +412,29 @@ return
 } 
 
 })
+
+client.on('interactionCreate', async(i) => {
+
+if(i.customId == "tıkla_coin") {
+
+const cevaplar = [
+
+"1000", "2750", "1250", "1500", "2000", "2500", "2250", "1750", "3000", "3250","3500","3750","4000","4250", "4500", "4750", "5000", 
+
+] 
+
+var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)]; 
+
+db.add(`coin_${i.user.id}`,cevap) 
+
+i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, components: []}) 
+
+}
+
+})
+
+client.on('messageCreate', async(m) => {
+
+db.add(`coin_${m.author.id}`,1)
+
+}) 
