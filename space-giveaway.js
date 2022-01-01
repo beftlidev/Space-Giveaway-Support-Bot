@@ -46,7 +46,6 @@ const row = new MessageActionRow()
 
 .setLabel('Say Hello!')
 .setEmoji('921392931867357235')
-.setDisabled(false) 
 .setCustomId(`hello-${member.user.id}`) 
   )
 client.channels.cache.get('843458021040455740').send({embeds: [embed], components: [row]})
