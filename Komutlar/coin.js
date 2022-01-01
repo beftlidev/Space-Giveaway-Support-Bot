@@ -38,5 +38,5 @@ let toplam = await client.coin.fetch(`coin_${i.id}`)
 
 }
 
-}
+} 
 
