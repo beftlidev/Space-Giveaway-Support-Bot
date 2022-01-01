@@ -37,7 +37,7 @@ const embed = new Discord.MessageEmbed()
 
 .setColor('GREEN') 
 
-.setFooter(`Space Giveaway Support`, client.user.avatarURL()) 
+//.setFooter(`Space Giveaway Support`, client.user.avatarURL()) 
 const row = new MessageActionRow() 
 .addComponents(
   new MessageButton() 
@@ -238,7 +238,7 @@ if(msg.author.bot) return
 msg.reply(`Aleyküm Selam Hoşgeldin, <a:awavinghand:921392931867357235>!`) 
 
 } 
-if(msg.content.toLowerCase == "günlük") {
+/*if(msg.content.toLowerCase == "günlük") {
 
 const talkedRecently = new Set();
 
@@ -267,7 +267,7 @@ let toplam = await coin.fetch(`coin_${msg.author.id}`)
 
         const embed = new Discord.MessageEmbed()
 
-        .setAuthor(msg.author.username, msg.author.displayAvatarURL({dynamic:true})).setThumbnail(msg.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
+       // .setAuthor(msg.author.username, msg.author.displayAvatarURL({dynamic:true})).setThumbnail(msg.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
 
        .setDescription(`Toplam ${coin} coin kazandın, tebrikler 🎉!`) 
 
@@ -280,10 +280,9 @@ setTimeout(() => {
   talkedRecently.delete(msg.author.id);
 
 }, 86400000);
-
-}
-
 } 
+}*/
+
 })  
 client.on('ready', async(i) => {
   console.log('ldlsk') 

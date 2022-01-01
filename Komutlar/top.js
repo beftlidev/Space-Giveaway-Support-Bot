@@ -26,8 +26,7 @@ const Teyit = await client.coin.all().filter(data => data.ID.startsWith(`coin_`)
 
         const embed = new Discord.MessageEmbed()
 
-        .setAuthor(interaction.user.username, interaction.user.displayAvatarURL({dynamic:true})).setThumbnail(interaction.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
-
+      
         .addField(':coin: Users with the most coins.', FinalDB.replace('undefined','Unknown user.'))
 
         interaction.reply({embeds: [embed]})
