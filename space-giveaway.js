@@ -11,7 +11,7 @@ require("./utils/loader.js")(client)
 const logs = require('discord-logs');
 logs(client);
 client.login(process.env.TOKEN) 
-client.setMax
+client.setMaxListeners(50)
 const {
 
     JsonDatabase,
@@ -394,7 +394,7 @@ if(message.author.bot) return
 
 const cevaplar = [
 
-"evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", 
+"hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", 
 
 ] 
 
