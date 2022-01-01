@@ -11,7 +11,7 @@ require("./utils/loader.js")(client)
 const logs = require('discord-logs');
 logs(client);
 client.login(process.env.TOKEN) 
-
+client.setMax
 const {
 
     JsonDatabase,
