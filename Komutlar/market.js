@@ -86,7 +86,7 @@ if (coin < 500000) return i.reply({content: "<:sgs_error:921392927568195645> Ne 
 
 await client.coin.substr(`coin_${i.user.id}`, 500000) 
 
-members.get(interaction.user.id).oles.add('926868153592586282')
+members.get(interaction.user.id).roles.add('926868153592586282')
 
 i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Plüton rolünü aldın!`})
 
@@ -100,7 +100,7 @@ if (coin < 450000) return i.reply({content: "<:sgs_error:921392927568195645> Ne 
 
 await client.coin.substr(`coin_${i.user.id}`, 450000) 
 
-i.user.roles.add('926868167094059028')
+members.get(interaction.user.id).roles.add('926868167094059028')
 
 i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Neptün rolünü aldın!`})
 
@@ -114,7 +114,7 @@ if (coin < 400000) return i.reply({content: "<:sgs_error:921392927568195645> Ne 
 
 await client.coin.substr(`coin_${i.user.id}`, 400000) 
 
-i.user.roles.add('926868765881274418')
+members.get(interaction.user.id).roles.add('926868765881274418')
 
 i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Satürn rolünü aldın!`})
 
@@ -128,7 +128,7 @@ if (coin < 350000) return i.reply({content: "<:sgs_error:921392927568195645> Ne 
 
 await client.coin.substr(`coin_${i.user.id}`, 350000) 
 
-i.user.roles.add('926868662667862087')
+members.get(interaction.user.id).roles.add('926868662667862087')
 
 i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Mars rolünü aldın!`})
 
@@ -142,7 +142,7 @@ if (coin < 250000) return i.reply({content: "<:sgs_error:921392927568195645> Ne 
 
 await client.coin.substr(`coin_${i.user.id}`, 250000) 
 
-i.user.roles.add('926868159280074782')
+members.get(interaction.user.id).roles.add('926868159280074782')
 
 i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Merkür rolünü aldın!`})
 
@@ -154,7 +154,7 @@ collector.on("end",(collected, reason) => {
 
 if(reason == "time"){
 
-interaction.editReply({ content: "👀 Menü deaktif edildi!", components: [] })
+interaction.editReply({ content: "👀 Market deaktif edildi!", components: [] })
 
 } 
 
