@@ -211,7 +211,7 @@ message.react(cevap)
 })
 
 client.on('messageCreate', message => {
-
+if(message.author.bot) return 
 if (message.channel.id == "843458132968734740") {
 
 message.react('👍') 
@@ -351,13 +351,13 @@ let tier = client.guilds.cache.get(sunucuID).premiumTier
 
 const cevaplar = [
 
-"Sunucuya bir boostunu geri çekti!", "Sunucuya bir kargo göndermişti ama adres yanlışmış!", "Sunucuya garip bir şey gönderdi *b-b-bu bir evet yanlış basılmış boost!", "Sunucuya bastığı Boostu geri çekti ama hala onu seviyoruz!", "Sunucuya boost yerine pizza göndermiş. Üyelerimiz çok mutlu *yummy*!", "Sunucuda bir dondurmacı açtı ve kazandığı para ile uzaklara gitti!", "Sunucuya bir bomba attı ve *BUMMM* heryer siyah boost ile kaplı!"
+"Sunucudaki bir boostunu geri çekti!", "Sunucuya bir kargo göndermişti ama adres yanlışmış!", "Sunucuya garip bir şey gönderdi *b-b-bu bir evet yanlış basılmış boost!", "Sunucuya bastığı Boostu geri çekti ama hala onu seviyoruz!", "Sunucuya boost yerine pizza göndermiş. Üyelerimiz çok mutlu *yummy*!", "Sunucuda bir dondurmacı açtı ve kazandığı para ile uzaklara gitti!", "Sunucuya bir bomba attı ve *BUMMM* heryer siyah boost ile kaplı!"
 
 ]
 
 var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
 
-let mesaj = `<:bust_iste:926527923127730226> ${member.user} ${cevap}
+let mesaj = `<:bust_iste:926527923127730226> <:sgs_eksi:927072196101283890> ${member.user} ${cevap}
 
 `
 
@@ -391,7 +391,7 @@ let boost = client.guilds.cache.get(sunucuID).premiumSubscriptionCount
 
 let tier = client.guilds.cache.get(sunucuID).premiumTier
 
-let mesaj = `<:sgs_error:921392927568195645> Hüğ. Sunucumuz 1 seviye kaybetti artık ${tier}. seviyeyiz.`
+let mesaj = `<:sgs_error:921392927568195645> Sunucumuz 1 seviye kaybetti artık ${tier}. seviyeyiz.`
 
 client.channels.cache.get(kanal).send({content: mesaj}) 
 
@@ -443,8 +443,16 @@ const cevaplar = [
 var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)]; 
 
 await coin.add(`coin_${i.user.id}`,cevap) 
-
-i.update({content: `İlk ${i.user} tıkladı ve ${cevap} coin kazandı!`, components: []}) 
+const row = new MessageActionRow()
+.addComponents(
+  new MessageButton() 
+.setStyle('PRIMARY')
+.setLabel('Tıkla!')
+.setDisabled(true) 
+.setEmoji('👆')
+.setCustomId('tıkla_coin') 
+) 
+i.update({content: `İlk ${i.user} (\`${i.user.tag}\`) tıkladı ve ${cevap} coin kazandı, tebrikler 🎉!`, components: [row]}) 
 
 }
 })
@@ -493,8 +501,8 @@ return
 
 
 client.on('messageCreate', async(m) => {
-
-await coin.add(`coin_${m.author.id}`,1)
+if(m.author.bot) return 
+await coin.add(`coin_${m.author.id}`,3)
 
 }) 
 
