@@ -36,11 +36,11 @@ new MessageButton()
 
 ) 
 
-interaction.reply({embeds: [embed], components: [row]}).then((msg) => {
+interaction.reply({embeds: [embed], components: [row]})
 
 const filter = (interactionn) => interactionn.customId === 'onayla' && interactionn.user.id === interaction.user.id;
 
-const collector = msg.createMessageComponentCollector({ componentType: "BUTTON", filter, time: 15000 });
+const collector = interaction.channel.createMessageComponentCollector({ componentType: "BUTTON", filter, time: 15000 });
 
 collector.on('collect', async i => {
 
@@ -70,11 +70,9 @@ new MessageButton()
 
 ) 
 
-await msg.edit({embeds: [embed], components: [a]}) 
+await i.update({embeds: [embed], components: [a]}) 
 
 return process.exit()
-
-client.application.commands.set(client.allFiles)
 
 }
 })
@@ -86,11 +84,9 @@ const embed = new Discord.MessageEmbed()
 
 .setColor('RED')
 
-        return msg.edit({embeds: [embed], components: []})
+        return interaction.editReply({embeds: [embed], components: []})
+        }) 
 
-        }
-
-})
 
 }
 
