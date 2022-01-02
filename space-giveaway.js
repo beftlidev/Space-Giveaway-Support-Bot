@@ -215,15 +215,12 @@ if(message.author.bot) return
 if (message.channel.id == "843458132968734740") {
 
 message.react('👍') 
-
-message.react('👎')
-
-message.react('❤️')
-
+  message.react('👎')
+  message.react('❤️')
+  message.react('😢')
 message.react('🤔')
-
 message.react('🤭')
-
+  message.react('🤣') 
 message.react('😍')
 
 } 
