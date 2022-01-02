@@ -12,6 +12,7 @@ module.exports = (client, interaction) => {
   var allFiles = client.commands.map(a => {
     return {name: a.name, description: a.description, options: a.options}
   })
+  client.allFiles = allFiles
   client.on("ready", async() => {
 client.application.commands.set(allFiles) 
       console.log("BOT | Slash command loaded for " + client.guilds.cache.size + ".")
