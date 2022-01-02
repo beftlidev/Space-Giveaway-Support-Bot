@@ -210,10 +210,14 @@ message.react(cevap)
 
 })
 
-client.on('messageCreate', message => {
-if(message.author.bot) return 
-if (message.channel.id == "843458132968734740") {
 
+client.on("messageCreate", message => {
+  if (message.channel.id !== "843458132968734740") { //buraya o kanalın ID'si yazılacak.
+    return;
+  }
+  if (message.attachments.size < 1) {
+    message.delete()
+  } else {
 message.react('👍') 
   message.react('👎')
   message.react('❤️')
