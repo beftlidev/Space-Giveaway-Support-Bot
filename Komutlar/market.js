@@ -67,7 +67,7 @@ interaction.reply({content: mesaj, components: [row]})
 
 const filter = x => x.customId == "select" && x.user.id == interaction.member.id
 
-const collector = await interaction.channel.createMessageComponentCollector({ filter, time: 60000, max: 5 })
+const collector = await interaction.channel.createMessageComponentCollector({ filter, time: 60000, max: 3 })
 let sw = client.guilds.cache.get('752164000418234448') 
 
 var members = await sw.members.fetch()
@@ -102,7 +102,7 @@ await client.coin.substr(`coin_${i.user.id}`, 450000)
 
 members.get(interaction.user.id).roles.add('926868167094059028')
 
-i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Neptün rolünü aldın!`})
+i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Neptün rolünü aldın!`, ephemeral: true})
 
 } 
 
@@ -116,7 +116,7 @@ await client.coin.substr(`coin_${i.user.id}`, 400000)
 
 members.get(interaction.user.id).roles.add('926868765881274418')
 
-i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Satürn rolünü aldın!`})
+i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Satürn rolünü aldın!`, ephemeral: true})
 
 } 
 
@@ -130,7 +130,7 @@ await client.coin.substr(`coin_${i.user.id}`, 350000)
 
 members.get(interaction.user.id).roles.add('926868662667862087')
 
-i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Mars rolünü aldın!`})
+i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Mars rolünü aldın!`, ephemeral: true})
 
 }
 
@@ -144,7 +144,7 @@ await client.coin.substr(`coin_${i.user.id}`, 250000)
 
 members.get(interaction.user.id).roles.add('926868159280074782')
 
-i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Merkür rolünü aldın!`})
+i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Merkür rolünü aldın!`, ephemeral: true})
 
 } 
 
