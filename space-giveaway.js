@@ -44,7 +44,7 @@ const row = new MessageActionRow()
 
 .setStyle('PRIMARY')
 
-.setLabel('Say Hello!')
+.setLabel('Karşıla!')
 .setEmoji('921392931867357235')
 .setCustomId(`hello`) 
   )
