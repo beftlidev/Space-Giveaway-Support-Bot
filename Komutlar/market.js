@@ -68,6 +68,9 @@ interaction.reply({content: mesaj, components: [row]})
 const filter = x => x.customId == "select" && x.user.id == interaction.member.id
 
 const collector = await interaction.channel.createMessageComponentCollector({ filter, time: 60000, max: 5 })
+let sw = client.guilds.cache.get('752164000418234448') 
+
+var members = await sw.members.fetch()
 
 collector.on("collect", async (i) => {
 
@@ -81,9 +84,9 @@ if (!coin) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki
 
 if (coin < 500000) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki en az 500.000 coinin olması lazım.", ephemeral: true });
 
-await client.coin.subtract(`coin_${i.user.id}`, 500000) 
+await client.coin.substr(`coin_${i.user.id}`, 500000) 
 
-i.user.roles.add('926868153592586282')
+members.get(interaction.user.id).oles.add('926868153592586282')
 
 i.reply({content: `<:sgs_tick:921392926683197460> Başarı ile Plüton rolünü aldın!`})
 
@@ -95,7 +98,7 @@ if (!coin) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki
 
 if (coin < 450000) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki en az 450.000 coinin olması lazım.", ephemeral: true });
 
-await client.coin.subtract(`coin_${i.user.id}`, 450000) 
+await client.coin.substr(`coin_${i.user.id}`, 450000) 
 
 i.user.roles.add('926868167094059028')
 
@@ -109,7 +112,7 @@ if (!coin) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki
 
 if (coin < 400000) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki en az 400.000 coinin olması lazım.", ephemeral: true });
 
-await client.coin.subtract(`coin_${i.user.id}`, 400000) 
+await client.coin.substr(`coin_${i.user.id}`, 400000) 
 
 i.user.roles.add('926868765881274418')
 
@@ -123,7 +126,7 @@ if (!coin) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki
 
 if (coin < 350000) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki en az 350.000 coinin olması lazım.", ephemeral: true });
 
-await client.coin.subtract(`coin_${i.user.id}`, 350000) 
+await client.coin.substr(`coin_${i.user.id}`, 350000) 
 
 i.user.roles.add('926868662667862087')
 
@@ -137,7 +140,7 @@ if (!coin) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki
 
 if (coin < 250000) return i.reply({content: "<:sgs_error:921392927568195645> Ne yazıkki en az 250.000 coinin olması lazım.", ephemeral: true });
 
-await client.coin.subtract(`coin_${i.user.id}`, 250000) 
+await client.coin.substr(`coin_${i.user.id}`, 250000) 
 
 i.user.roles.add('926868159280074782')
 

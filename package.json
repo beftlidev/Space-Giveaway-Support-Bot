@@ -6,7 +6,7 @@
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.5",
     "canvacord": "^5.2.3",
-    "wio.db": "^4.0.21",
+    "wio.db": "^4.0.22",
     "chalk": "^4.1.2",
     "croxydb": "^0.0.7",
     "dblapi.js": "^2.4.0",
