@@ -46,13 +46,13 @@ let coins = await client.coin.fetch(`coin_${interaction.user.id}`)
 
 if(!coins) {
 
-interaction.reply(`<:sgs_error:921392927568195645> En az ${coin}\' in olması lazım!`) 
+interaction.reply(`<:sgs_error:921392927568195645> En az ${coin} coin\' in olması lazım!`) 
 
 } 
 
 if(coin > coins) {
 
-interaction.reply(`<:sgs_error:921392927568195645> En az ${coin}\' in olması lazım!`)  
+interaction.reply(`<:sgs_error:921392927568195645> En az ${coin} coin\' in olması lazım!`)  
 
 } 
 
@@ -60,7 +60,7 @@ await client.coin.add(`coin_${user.id}`, coin)
 
 await client.coin.substr(`coin_${interaction.user.id}`, coin) 
 
-interaction.reply(`<:sgs_tick:921392926683197460> Başarı ile ${user} (\`${user.tag}\`) adlı kişiye ${coin} gönderdin!`) 
+interaction.reply(`<:sgs_tick:921392926683197460> Başarı ile ${user} (\`${user.tag}\`) adlı kişiye ${coin} coin gönderdin!`) 
 
 }
 
