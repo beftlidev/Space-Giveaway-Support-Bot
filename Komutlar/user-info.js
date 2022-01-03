@@ -8,8 +8,6 @@ const { MessageAttachment } = require("discord.js");
 
 const { DiscordBanners } = require('discord-banners');
 
-const discordBanners = new DiscordBanners(client);
-
 module.exports = {
 
    
@@ -37,7 +35,7 @@ module.exports = {
   
 
     run: async (client, interaction) => {
-
+const discordBanners = new DiscordBanners(client);
    let dil = db.fetch(`language_${interaction.guild.id}`)
 
 const u = interaction.options.getUser('user') 

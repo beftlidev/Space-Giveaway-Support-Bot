@@ -1,5 +1,5 @@
 {
-  "name": "gways",
+  "name": "gways", 
   "version": "1.0.0",
   "description": "Space Giveaway Alt yapı",
   "main": "space-giveaway.js",
@@ -32,7 +32,8 @@
     "simply-djs": "^2.1.3",
     "xfinity": "^1.0.61",
     "axios": "^0.24.0",
-    "discord-logs": "^2.0.1"
+    "discord-logs": "^2.0.1",
+    "discord-banners": "^1.0.1"
   },
   "scripts": {
     "start": "node space-giveaway.js"
