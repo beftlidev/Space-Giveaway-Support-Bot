@@ -25,8 +25,87 @@ const coin = new JsonDatabase({
     databasePath:"./databases/coin.json" 
 
 });
+const mesaj = new JsonDatabase({databasePath:"./databases/mesaj.json"}) 
 client.coin = coin 
+client.mesaj =mesaj
+const { GiveawaysManager } = require("discord-giveaways");
+const manager = new GiveawaysManager(client, {
+  storage: "./çekilişler.json",
+  default: {
+    botsCanWin: false,
+    embedColor: "GREEN",
+    embedColorEnd: "RED",
+    reaction: "🎉"
+  }
+});
 
+client.giveawaysManager = manager;
+client.giveawaysManager.on('giveawayReactionAdded', async(giveaway, reactor, messageReaction) => {
+let client = messageReaction.message.client
+
+const row = new MessageActionRow()
+.addComponents(
+new MessageButton()
+.setStyle("LINK")
+.setLabel("Giveaway")
+.setEmoji("🎉")
+.setURL(`https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}`)
+)
+    let approved =  new Discord.MessageEmbed()
+    .setTimestamp()
+    .setColor("#2F3136")
+    .setTitle("<:sgs_tick:921392926683197460> Your participation has been confirmed!")
+        .setFooter("Space Giveaway")
+    .setTimestamp()
+   let denied =  new Discord.MessageEmbed()
+    .setTimestamp()
+    .setColor("#2F3136")
+    .setTitle("<:sgs_error:921392927568195645> Your participation has been denied!")
+    .setFooter("Space Giveaway")  
+   if (reactor.user.bot) return;
+    if(giveaway.extraData) {
+      if (giveaway.extraData.server !== "null") {
+try {    
+        await client.guilds.cache.get(giveaway.extraData.server).members.fetch()
+await client.guilds.cache.get(giveaway.extraData.server).members.fetch(reactor.id)
+          return reactor.send({
+            embeds: [approved], components: [row]
+          }).catch(e => {})
+      } catch(e) {
+messageReaction.users.remove(reactor.user);
+        return reactor.send({
+         embeds: [denied], components: [row] 
+        }).catch(e => {}) 
+}
+         }  
+      if (giveaway.extraData.role !== "null"){   
+if(!reactor.roles.cache.has(giveaway.extraData.role)) {
+            messageReaction.users.remove(reactor.user); 
+        return reactor.send({
+          embeds: [denied], components: [row]
+        }).catch(e => {})
+    }       
+         if(reactor.roles.cache.has(giveaway.extraData.role)) {
+      return reactor.send({
+        embeds: [approved], components: [row]
+      }).catch(e => {})    
+     }
+    if (giveaway.extraData.message !== "null"){  
+let mesaj2 = await mesaj.fetch(`toplam_mesaj_${giveaway.guildId}_${reactor.id}`)
+if(giveaway.extraData.message > mesaj2) {
+return reactor.send({
+        embeds: [approved], components: [row]
+      }).catch(e => {})
+} else {
+messageReaction.users.remove(reactor.user); 
+        return reactor.send({
+          embeds: [denied], components: [row]
+        }).catch(e => {})
+}
+} 
+   }
+   }
+     })
 client.on("guildMemberAdd", (member) => {
 const embed = new Discord.MessageEmbed() 
 
