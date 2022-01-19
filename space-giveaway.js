@@ -28,84 +28,7 @@ const coin = new JsonDatabase({
 const mesaj = new JsonDatabase({databasePath:"./databases/mesaj.json"}) 
 client.coin = coin 
 client.mesaj =mesaj
-const { GiveawaysManager } = require("discord-giveaways");
-const manager = new GiveawaysManager(client, {
-  storage: "./çekilişler.json",
-  default: {
-    botsCanWin: false,
-    embedColor: "GREEN",
-    embedColorEnd: "RED",
-    reaction: "🎉"
-  }
-});
 
-client.giveawaysManager = manager;
-client.giveawaysManager.on('giveawayReactionAdded', async(giveaway, reactor, messageReaction) => {
-let client = messageReaction.message.client
-
-const row = new MessageActionRow()
-.addComponents(
-new MessageButton()
-.setStyle("LINK")
-.setLabel("Giveaway")
-.setEmoji("🎉")
-.setURL(`https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}`)
-)
-    let approved =  new Discord.MessageEmbed()
-    .setTimestamp()
-    .setColor("#2F3136")
-    .setTitle("<:sgs_tick:921392926683197460> Your participation has been confirmed!")
-        .setFooter("Space Giveaway")
-    .setTimestamp()
-   let denied =  new Discord.MessageEmbed()
-    .setTimestamp()
-    .setColor("#2F3136")
-    .setTitle("<:sgs_error:921392927568195645> Your participation has been denied!")
-    .setFooter("Space Giveaway")  
-   if (reactor.user.bot) return;
-    if(giveaway.extraData) {
-      if (giveaway.extraData.server !== "null") {
-try {    
-        await client.guilds.cache.get(giveaway.extraData.server).members.fetch()
-await client.guilds.cache.get(giveaway.extraData.server).members.fetch(reactor.id)
-          return reactor.send({
-            embeds: [approved], components: [row]
-          }).catch(e => {})
-      } catch(e) {
-messageReaction.users.remove(reactor.user);
-        return reactor.send({
-         embeds: [denied], components: [row] 
-        }).catch(e => {}) 
-}
-         }  
-      if (giveaway.extraData.role !== "null"){   
-if(!reactor.roles.cache.has(giveaway.extraData.role)) {
-            messageReaction.users.remove(reactor.user); 
-        return reactor.send({
-          embeds: [denied], components: [row]
-        }).catch(e => {})
-    }       
-         if(reactor.roles.cache.has(giveaway.extraData.role)) {
-      return reactor.send({
-        embeds: [approved], components: [row]
-      }).catch(e => {})    
-     }
-    if (giveaway.extraData.message !== "null"){  
-let mesaj2 = await mesaj.fetch(`toplam_mesaj_${giveaway.guildId}_${reactor.id}`)
-if(giveaway.extraData.message > mesaj2) {
-return reactor.send({
-        embeds: [approved], components: [row]
-      }).catch(e => {})
-} else {
-messageReaction.users.remove(reactor.user); 
-        return reactor.send({
-          embeds: [denied], components: [row]
-        }).catch(e => {})
-}
-} 
-   }
-   }
-     })
 client.on("guildMemberAdd", (member) => {
 const embed = new Discord.MessageEmbed() 
 
@@ -164,11 +87,11 @@ Cezası: *1 Saat Mute*
 Cezası: *1 Gün Mute*
 <:dadlu_kedi:917011422922301440> Sunucuda birine saygısız şekilde, kırıcı, küfür vb. Etmek yapmak yasaktır!
 Cezası: *1 Gün Mute*
-<:tik:804253394326913085> Sunucuda +18 gif, fotoğraf, video, link oatlamşka yasaktır!
+<:tik:804253394326913085> Sunucuda +18 gif, fotoğraf, video, link paylaşmak yasaktır!
 Cezası: *Sınırsız ban*
 <:user_help:911678949287927909> Herhangi bir hesap satmak, birinin kişisel bilgisini (telefon numarası, kimlik numarası vb.) paylaşmak yasaktır!
 Cezası: *Sınırsız ban*
-<:hastag:888415406937755688> <#878502911389335552>, <#848130151169392670>, <#911056301386268692>, <#919979806781755472>, <#923247333708300298> kanallarını amaçları dışında kullanmak yasaktır!
+<:hastag:888415406937755688> <#933395557110673418>, <#848130151169392670>, <#911056301386268692>, <#919979806781755472>, <#923247333708300298> kanallarını amaçları dışında kullanmak yasaktır!
 Cezası: *1 Gün Mute*
 <:discord:888414495423225866> <#848130100825554984> Sebepsiz yere ticket açmak yasaktır!
 Cezası: *1 Gün Mute*
@@ -245,22 +168,26 @@ message.react('<:bust_iste:926527923127730226>')
 })
 
 client.on('messageCreate', message => {
-
 if (message.channel.id == "919979806781755472") {
-
 const cevaplar = [
-
 "🤣", "🙂", "🤩", "😁", "🤭", "🤔", "🙄", "🤯", "😖", "😳", "🤪"
-
 ] 
-
 var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
-
 message.react(cevap) 
-
-} 
-
+}
 })
+
+client.on('messageCreate', message => {
+if (message.channel.id == "933395557110673418") {
+var members = await sw.members.fetch()
+members.get(member.user.id).roles.add('933395378865315910')
+const cevaplar = [
+"😍", "😋", "🤩", "🤟", 
+] 
+var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+message.react(cevap) 
+} 
+}) 
 
 client.on('messageCreate', message => {
 
@@ -319,50 +246,6 @@ if(msg.author.bot) return
 msg.reply(`Aleyküm Selam Hoşgeldin, <a:awavinghand:921392931867357235>!`) 
 
 } 
-/*if(msg.content.toLowerCase == "günlük") {
-
-const talkedRecently = new Set();
-
-const cevaplar = [
-
-"500", "750", "1000", "1500", "250",
-
-] 
-
-const coin = cevaplar[Math.floor(Math.random() * cevaplar.length)];
-
-if (talkedRecently.has(msg.author.id)) {
-
-        const embed = new Discord.MessageEmbed()
-
-        .setColor("RED")
-
-        .setDescription(`<:sgs_error:921392927568195645> Bu komutu günde bir kullanabilirsin!`)
-
-        msg.reply({embeds: [embed], ephemeral: true});
-
-} else {
-  await coin.add(`coin_${msg.author.id}`, coin) 
-
-let toplam = await coin.fetch(`coin_${msg.author.id}`)
-
-        const embed = new Discord.MessageEmbed()
-
-       // .setAuthor(msg.author.username, msg.author.displayAvatarURL({dynamic:true})).setThumbnail(msg.guild.iconURL({dynamic:true})).setFooter(client.user.username, client.user.displayAvatarURL({dynamic:true})).setColor("#0099ff").setTimestamp()
-
-       .setDescription(`Toplam ${coin} coin kazandın, tebrikler 🎉!`) 
-
-        msg.reply({embeds: [embed]})
-
-talkedRecently.add(msg.author.id);
-
-setTimeout(() => {
-
-  talkedRecently.delete(msg.author.id);
-
-}, 86400000);
-} 
-}*/
 
 })  
 client.on('ready', async(i) => {
@@ -539,12 +422,12 @@ i.update({content: `İlk ${i.user} (\`${i.user.tag}\`) tıkladı ve ${cevap} coi
 })
 
 client.on('messageCreate', message => {
-
+if(message.channel.id === "843458021040455740") {
 if(message.author.bot) return 
 
 const cevaplar = [
 
-"hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", 
+"hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "hayır", "evet", "hayır", "hayır", 
 
 ] 
 
@@ -575,7 +458,7 @@ message.channel.send({content: 'Aşşağıdaki butona ilk tıklayan 1000-5000 ar
 return 
 
 } 
-
+} 
 })
 
 //client.on('interactionCreate', async(i) => {
@@ -583,7 +466,7 @@ return
 
 client.on('messageCreate', async(m) => {
 if(m.author.bot) return 
-await coin.add(`coin_${m.author.id}`,3)
+await coin.add(`coin_${m.author.id}`, 5)
 
 }) 
 
