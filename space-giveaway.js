@@ -10,7 +10,7 @@ const fs = require("fs");
 require("./utils/loader.js")(client) 
 const logs = require('discord-logs');
 logs(client);
-client.login('OTI2MTI2Nzc4MDkzODEzODYw.Yc3Ixg.-dXngbhftWS7qRs5FYcFV8wmepY')
+client.login('')
 client.setMaxListeners(50)
 const {
 
