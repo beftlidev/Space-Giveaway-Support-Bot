@@ -177,7 +177,7 @@ message.react(cevap)
 }
 })
 
-client.on('messageCreate', message => {
+client.on('messageCreate', async(message) => {
 if (message.channel.id == "933395557110673418") {
 var members = await sw.members.fetch()
 members.get(member.user.id).roles.add('933395378865315910')
